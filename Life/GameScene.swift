@@ -1,45 +1,57 @@
-//
-//  GameScene.swift
-//  Life
-//
-//  Created by Family on 1/2/16.
-//  Copyright (c) 2016 9 Principles. All rights reserved.
-//
-
 import SpriteKit
 
 class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)
+    
+    var cells: Cells!
+    
+    let TileWidth: CGFloat = 10.0
+    let TileHeight: CGFloat = 10.0
+    
+    let gameLayer = SKNode()
+    let cellsLayer = SKNode()
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder) is not used in this app")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+    override init(size: CGSize) {
+        super.init(size: size)
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+        anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        let background = SKSpriteNode(color: UIColor.grayColor(), size: size)
+        addChild(background)
+        
+        addChild(gameLayer)
+        
+        let layerPosition = CGPoint(
+            x: -TileWidth * CGFloat(NumColumns) / 2,
+            y: -TileHeight * CGFloat(NumRows) / 2)
+        
+        cellsLayer.position = layerPosition
+        gameLayer.addChild(cellsLayer)
+    }
+    
+    func addSpritesForCells(cells: Set<Cell>) {                    cellsLayer.removeAllChildren()
+        for cell in cells {
+            let sprite = SKSpriteNode(color: UIColor.grayColor(), size: CGSize(width: 9.5, height: 9.5))
+            if(cell.alive) {
+                sprite.color = UIColor.greenColor()
+            }
+            sprite.position = pointForColumn(cell.column, row:cell.row)
+            cellsLayer.addChild(sprite)
+            cell.sprite = sprite
         }
     }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    
+    func pointForColumn(column: Int, row: Int) -> CGPoint {
+        return CGPoint(
+            x: CGFloat(column)*TileWidth + TileWidth/2,
+            y: CGFloat(row)*TileHeight + TileHeight/2)
     }
+    
+    override func update(currentTime: NSTimeInterval) {
+        addSpritesForCells(cells.shuffle())
+    }
+
 }

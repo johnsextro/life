@@ -16,6 +16,9 @@
 		B1E7BBDA1C383838009B9097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E7BBD81C383838009B9097 /* LaunchScreen.storyboard */; };
 		B1E7BBE51C383838009B9097 /* LifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7BBE41C383838009B9097 /* LifeTests.swift */; };
 		B1E7BBF01C383838009B9097 /* LifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7BBEF1C383838009B9097 /* LifeUITests.swift */; };
+		B1E7BBFE1C383912009B9097 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7BBFD1C383912009B9097 /* Array2D.swift */; };
+		B1E7BC001C383BD2009B9097 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7BBFF1C383BD2009B9097 /* Cells.swift */; };
+		B1E7BC021C38418E009B9097 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7BC011C38418E009B9097 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		B1E7BBEB1C383838009B9097 /* LifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E7BBEF1C383838009B9097 /* LifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeUITests.swift; sourceTree = "<group>"; };
 		B1E7BBF11C383838009B9097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1E7BBFD1C383912009B9097 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		B1E7BBFF1C383BD2009B9097 /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		B1E7BC011C38418E009B9097 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				B1E7BBD61C383838009B9097 /* Assets.xcassets */,
 				B1E7BBD81C383838009B9097 /* LaunchScreen.storyboard */,
 				B1E7BBDB1C383838009B9097 /* Info.plist */,
+				B1E7BBFD1C383912009B9097 /* Array2D.swift */,
+				B1E7BBFF1C383BD2009B9097 /* Cells.swift */,
+				B1E7BC011C38418E009B9097 /* Cell.swift */,
 			);
 			path = Life;
 			sourceTree = "<group>";
@@ -264,8 +273,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1E7BBD01C383838009B9097 /* GameScene.swift in Sources */,
+				B1E7BBFE1C383912009B9097 /* Array2D.swift in Sources */,
 				B1E7BBD21C383838009B9097 /* GameViewController.swift in Sources */,
 				B1E7BBCC1C383838009B9097 /* AppDelegate.swift in Sources */,
+				B1E7BC001C383BD2009B9097 /* Cells.swift in Sources */,
+				B1E7BC021C38418E009B9097 /* Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
