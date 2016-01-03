@@ -33,11 +33,10 @@ class GameViewController: UIViewController {
         scene.scaleMode = .AspectFill
         cells = Cells()
         scene.cells = cells
-        
+        beginGame()
+        sleep(1)
         // Present the scene.
         skView.presentScene(scene)
-        
-        beginGame()
     }
     
     func beginGame() {

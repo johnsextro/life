@@ -32,7 +32,8 @@ class GameScene: SKScene {
         gameLayer.addChild(cellsLayer)
     }
     
-    func addSpritesForCells(cells: Set<Cell>) {                    cellsLayer.removeAllChildren()
+    func addSpritesForCells(cells: Set<Cell>) {
+        cellsLayer.removeAllChildren()
         for cell in cells {
             let sprite = SKSpriteNode(color: UIColor.grayColor(), size: CGSize(width: 9.5, height: 9.5))
             if(cell.alive) {
@@ -51,7 +52,7 @@ class GameScene: SKScene {
     }
     
     override func update(currentTime: NSTimeInterval) {
-        addSpritesForCells(cells.shuffle())
+        addSpritesForCells(cells.executeRound())
     }
 
 }
